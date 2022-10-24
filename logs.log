@@ -1,0 +1,64 @@
+Se eliminaron 1 filas con datos vacíos/nulos
+Se cambiaron los tipos de las columnas día, mes y año de flotantes a enteros
+Se creó la columna Fecha de tipo datetime para facilitar las operaciones
+No se han encontrado datos fuera del rango de fechas permitidas.
+Se eliminaron las columnas ['Día', 'Mes', 'Año']
+Frecuencias de Grupo alimenticio: 
+Wheat flour       234
+Wheat             210
+Maize (yellow)    185
+Bread              74
+Potatoes           74
+Rice (white)       74
+Milk               74
+Sugar              74
+Meat (beef)        22
+Name: Grupo alimenticio, dtype: int64
+Media de las frecuencias de grupo alimenticio: 113.44444444444444
+La media de cada columna del grupo mayoritario es de: 
+Precio en pesos argentinos    7.16310
+Precio en dólares             0.04926
+dtype: float64
+La media de cada columna del grupo minoritario es de: 
+Precio en pesos argentinos    62.340000
+Precio en dólares              0.428692
+dtype: float64
+La mediana de cada columna del grupo mayoritario es de: 
+Precio en pesos argentinos    1.3000
+Precio en dólares             0.0089
+dtype: float64
+La mediana de cada columna del grupo minoritario es de: 
+Precio en pesos argentinos    44.2250
+Precio en dólares              0.3041
+dtype: float64
+La moda de cada columna del grupo mayoritario es de: 
+   Precio en pesos argentinos  Precio en dólares
+0                         0.7             0.0048
+La moda de cada columna del grupo minoritario es de: 
+    Precio en pesos argentinos  Precio en dólares
+0                        14.37             0.0988
+1                        15.70             0.1080
+2                        17.64             0.1213
+3                        18.86             0.1297
+4                        20.96             0.1441
+5                        21.74             0.1495
+6                        23.84             0.1556
+7                        25.38             0.1639
+8                        33.96             0.1745
+9                        45.83             0.2328
+10                       57.05             0.2335
+11                       71.00             0.3152
+12                      112.00             0.3923
+13                         NaN             0.3951
+14                         NaN             0.4882
+15                         NaN             0.7702
+Los cuartiles de cada columna del grupo mayoritario es de: 
+      Precio en pesos argentinos  Precio en dólares
+0.25                        0.60             0.0041
+0.50                        1.30             0.0089
+0.75                        6.39             0.0440
+Los cuartiles de cada columna del grupo minoritario es de: 
+      Precio en pesos argentinos  Precio en dólares
+0.25                     22.6100           0.155525
+0.50                     44.2250           0.304100
+0.75                     76.0875           0.523200
