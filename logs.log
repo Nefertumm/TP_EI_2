@@ -97,6 +97,7 @@ Utilizando el método de forward fill de pandas para valores vacíos, ya que el va
 desde el último día hábil
 Se calculó el supuesto precio del dolar en cada fecha para verificar junto con la tabla.
 La media del supuesto precio del dolar fue de 145.4594518119493
+con un desvío estándar de 0.8953725930261092
 DataFrame luego de las operaciones anteriores:
                     Mercado  ... Precio dolar supuesto
 1             Buenos Aires  ...              147.0588
@@ -144,5 +145,50 @@ Graficando el precio en pesos argentinos de Potatoes, datos:
 
 [74 rows x 8 columns]...
 Gráfico de torta para representar la composición por región de Wheat
+Datos: 
+           Mercado Grupo alimenticio  ...  Precio dolar real  Precio dolar supuesto
+1     Buenos Aires             Wheat  ...             0.0861               147.0588
+4     Buenos Aires             Wheat  ...             0.0895               144.4444
+7     Buenos Aires             Wheat  ...             0.1063               147.6190
+10    Buenos Aires             Wheat  ...             0.1035               142.8571
+13    Buenos Aires             Wheat  ...             0.1104               145.4545
+...            ...               ...  ...                ...                    ...
+988   Buenos Aires             Wheat  ...             0.2417               145.4443
+996   Buenos Aires             Wheat  ...             0.3056               145.4031
+1004  Buenos Aires             Wheat  ...             0.3326               145.4299
+1012  Buenos Aires             Wheat  ...             0.3809               145.4177
+1020  Buenos Aires             Wheat  ...             0.3505               145.4177
+
+[210 rows x 8 columns]
 Gráfico de torta para representar la composición por región de Sugar
+Datos: 
+                   Mercado  ... Precio dolar supuesto
+398   Greater Buenos Aires  ...              145.3559
+407   Greater Buenos Aires  ...              145.3901
+416   Greater Buenos Aires  ...              145.4651
+425   Greater Buenos Aires  ...              145.4960
+434   Greater Buenos Aires  ...              145.3664
+...                    ...  ...                   ...
+986   Greater Buenos Aires  ...              145.4246
+994   Greater Buenos Aires  ...              145.4130
+1002  Greater Buenos Aires  ...              145.4143
+1010  Greater Buenos Aires  ...              145.4101
+1018  Greater Buenos Aires  ...              145.4245
+
+[74 rows x 8 columns]
 Gráfico de torta para representar la composición por región de Potatoes
+Datos: 
+                   Mercado  ... Precio dolar supuesto
+393   Greater Buenos Aires  ...              145.3689
+403   Greater Buenos Aires  ...              145.4545
+412   Greater Buenos Aires  ...              145.3351
+421   Greater Buenos Aires  ...              145.4212
+430   Greater Buenos Aires  ...              145.3300
+...                    ...  ...                   ...
+982   Greater Buenos Aires  ...              145.4351
+990   Greater Buenos Aires  ...              145.4045
+998   Greater Buenos Aires  ...              145.4152
+1006  Greater Buenos Aires  ...              145.4158
+1014  Greater Buenos Aires  ...              145.4322
+
+[74 rows x 8 columns]

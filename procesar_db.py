@@ -72,6 +72,7 @@ def importar_csv_dolares(db: pd.DataFrame) -> pd.DataFrame:
     db_dolares.drop(columns=['Apertura', 'Máximo', 'Mínimo', 'Vol.', '% var.'], inplace = True)
     logger('Obtenemos la gráfica del dolar en función del tiempo...')
     plot = sns.lineplot(data = db_dolares, x='Fecha', y = 'Valor del dolar en ARS')
+    plot.axes.set_title('Valor del dolar (ARS) en función del tiempo')
     plot.figure.savefig('graficos/valor_dolares_en_tiempo.png', dpi = 600, bbox_inches = 'tight')
     plt.clf()
     
@@ -93,6 +94,7 @@ def importar_csv_dolares(db: pd.DataFrame) -> pd.DataFrame:
     logger('Se calculó el supuesto precio del dolar en cada fecha para verificar junto con la tabla.')
     db['Precio dolar supuesto'] = round(db['Precio en pesos argentinos'] / db['Precio en dólares'] , 4)
     logger(f"La media del supuesto precio del dolar fue de {db['Precio dolar supuesto'].mean()}")
+    logger(f"con un desvío estándar de {db['Precio dolar supuesto'].std()}")
     logger(f'DataFrame luego de las operaciones anteriores:\n {str(db)}')
     return db
 
@@ -163,12 +165,12 @@ if __name__ == '__main__':
     
     db = importar_csv_dolares(db)
     wheat = db.loc[db['Grupo alimenticio'] == 'Wheat']
-    sns.lineplot(data=wheat, x='Fecha', y='Precio dolar real')
-    plot = sns.lineplot(data=wheat, x = 'Fecha', y = 'Precio en dólares')
-    plot.set(title='Wheat: Precio en dolares vs Precio en dolares corregido')
+    sns.lineplot(data=wheat, x='Fecha', y='Precio dolar real', label='Precio en dólares corregido')
+    plot = sns.lineplot(data=wheat, x = 'Fecha', y = 'Precio en dólares', label='Precio en dólares')
+    plot.set(title='Wheat: Precio en dólares vs Precio en dolares corregido')
     plot.axes.set_ylabel('Precio en dólares')
     plot.axes.set_xlabel('Año')
-    plot.figure.savefig('graficos/Wheat_dolares_real.png', dpi = 600, bbox_inches = 'tight')
+    plot.figure.savefig('graficos/Wheat_versus_precios.png', dpi = 600, bbox_inches = 'tight')
     plt.clf()
     logger('------------------------------------------------')
     
@@ -180,6 +182,8 @@ if __name__ == '__main__':
     grafico_torta_por_region(db, 'Wheat')
     grafico_torta_por_region(db, 'Sugar')
     grafico_torta_por_region(db, 'Potatoes')
+    
+    print(db.info(verbose=True))
     
     db.to_csv('base_de_datos_final.csv')
     
