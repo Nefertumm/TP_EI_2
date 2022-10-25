@@ -106,7 +106,17 @@ def graficar_con_respecto_al_tiempo(db : pd.DataFrame, grupo_alimenticio: str) -
     plt.clf()
     
 def grafico_torta_por_region(db: pd.DataFrame, grupo_alimenticio: str) -> None:
-    pass
+    logger(f'Gráfico de torta para representar la composición por región de {grupo_alimenticio}')
+    db = db.loc[db['Grupo alimenticio'] == grupo_alimenticio]
+    logger(f'Datos: \n{str(db)}')
+    frecuencias = db['Mercado'].value_counts()
+    labels = frecuencias.index.tolist()
+    colors = sns.color_palette('bright')[:len(labels)]
+    plt.pie(frecuencias, labels = labels, colors = colors, autopct ='%1.1f%%')
+    plt.title(f'Composición por región de {grupo_alimenticio}')
+    plt.axis('equal')
+    
+    plt.savefig(f'graficos/torta_composicion_{grupo_alimenticio}.png', dpi = 600, bbox_inches = 'tight')
     
 if __name__ == '__main__':
     # Inicializamos el archivo de logs vacío en cada ejecución
@@ -167,6 +177,9 @@ if __name__ == '__main__':
     # Descartamos toda la columna de dolares en ese caso
     graficar_con_respecto_al_tiempo(db, 'Sugar')
     graficar_con_respecto_al_tiempo(db, 'Potatoes')
+    grafico_torta_por_region(db, 'Wheat')
+    grafico_torta_por_region(db, 'Sugar')
+    grafico_torta_por_region(db, 'Potatoes')
     
     db.to_csv('base_de_datos_final.csv')
     
