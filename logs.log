@@ -15,26 +15,34 @@ Sugar              74
 Meat (beef)        22
 Name: Grupo alimenticio, dtype: int64
 Media de las frecuencias de grupo alimenticio: 113.44444444444444
-La media de cada columna del grupo mayoritario es de: 
+Medidas centrales y posicionales para el grupo mayoritario: 
+La media de cada columna es de: 
 Precio en pesos argentinos    7.16310
 Precio en dólares             0.04926
 dtype: float64
-La media de cada columna del grupo minoritario es de: 
-Precio en pesos argentinos    62.340000
-Precio en dólares              0.428692
-dtype: float64
-La mediana de cada columna del grupo mayoritario es de: 
+La mediana de cada columna es de: 
 Precio en pesos argentinos    1.3000
 Precio en dólares             0.0089
 dtype: float64
-La mediana de cada columna del grupo minoritario es de: 
+La moda de cada columna es de: 
+   Precio en pesos argentinos  Precio en dólares
+0                         0.7             0.0048
+Los cuartiles de cada columna es de: 
+      Precio en pesos argentinos  Precio en dólares
+0.25                        0.60             0.0041
+0.50                        1.30             0.0089
+0.75                        6.39             0.0440
+------------------------------------------------
+Medidas centrales y posicionales para el grupo minoritario: 
+La media de cada columna es de: 
+Precio en pesos argentinos    62.340000
+Precio en dólares              0.428692
+dtype: float64
+La mediana de cada columna es de: 
 Precio en pesos argentinos    44.2250
 Precio en dólares              0.3041
 dtype: float64
-La moda de cada columna del grupo mayoritario es de: 
-   Precio en pesos argentinos  Precio en dólares
-0                         0.7             0.0048
-La moda de cada columna del grupo minoritario es de: 
+La moda de cada columna es de: 
     Precio en pesos argentinos  Precio en dólares
 0                        14.37             0.0988
 1                        15.70             0.1080
@@ -52,13 +60,86 @@ La moda de cada columna del grupo minoritario es de:
 13                         NaN             0.3951
 14                         NaN             0.4882
 15                         NaN             0.7702
-Los cuartiles de cada columna del grupo mayoritario es de: 
-      Precio en pesos argentinos  Precio en dólares
-0.25                        0.60             0.0041
-0.50                        1.30             0.0089
-0.75                        6.39             0.0440
-Los cuartiles de cada columna del grupo minoritario es de: 
+Los cuartiles de cada columna es de: 
       Precio en pesos argentinos  Precio en dólares
 0.25                     22.6100           0.155525
 0.50                     44.2250           0.304100
 0.75                     76.0875           0.523200
+------------------------------------------------
+Graficas del ejercicio 6: 
+Elegimos Wheat como nuestro grupo de estudio
+Ordenamos los valores por fecha de Wheat en caso de que no esten ordenados
+DataFrame de wheat: 
+           Mercado Grupo alimenticio  ...  Precio en dólares      Fecha
+1     Buenos Aires             Wheat  ...             0.0017 2005-01-15
+4     Buenos Aires             Wheat  ...             0.0018 2005-02-15
+7     Buenos Aires             Wheat  ...             0.0021 2005-03-15
+10    Buenos Aires             Wheat  ...             0.0021 2005-04-15
+13    Buenos Aires             Wheat  ...             0.0022 2005-05-15
+...            ...               ...  ...                ...        ...
+988   Buenos Aires             Wheat  ...             0.1767 2022-02-15
+996   Buenos Aires             Wheat  ...             0.2295 2022-03-15
+1004  Buenos Aires             Wheat  ...             0.2582 2022-04-15
+1012  Buenos Aires             Wheat  ...             0.2957 2022-05-15
+1020  Buenos Aires             Wheat  ...             0.2957 2022-06-15
+
+[210 rows x 5 columns]
+Graficando el precio en dólares de Wheat...
+Graficando el precio en pesos argentinos de Wheat...
+Dado que la gráfica de dolares dio muy similar a la gráfica de los precios en pesos 
+Llenamos nuestra base de datos con los datos del valor del dolar en cada fecha
+desde una base de datos del precio historico del dolar del banco central argentino 
+pero primero debemos acondicionarla
+Obtenemos la gráfica del dolar en función del tiempo...
+Imputamos las fechas donde no tenemos el  valor del dolar en ese día, probablemente 
+es porque justo ese día cae en fin de semana
+Utilizando el método de forward fill de pandas para valores vacíos, ya que el valor del dolar en el fin de semana se mantiene constante
+desde el último día hábil
+Se calculó el supuesto precio del dolar en cada fecha para verificar junto con la tabla.
+La media del supuesto precio del dolar fue de 145.4594518119493
+DataFrame luego de las operaciones anteriores:
+                    Mercado  ... Precio dolar supuesto
+1             Buenos Aires  ...              147.0588
+2             Buenos Aires  ...              144.4444
+3                  Rosario  ...              141.6667
+4             Buenos Aires  ...              144.4444
+5             Buenos Aires  ...              147.2222
+...                    ...  ...                   ...
+1017  Greater Buenos Aires  ...              145.4126
+1018  Greater Buenos Aires  ...              145.4245
+1019               Rosario  ...              145.3885
+1020          Buenos Aires  ...              145.4177
+1021               Rosario  ...              145.4034
+
+[1021 rows x 8 columns]
+------------------------------------------------
+Graficando el precio en pesos argentinos de Sugar, datos: 
+                   Mercado  ... Precio dolar supuesto
+398   Greater Buenos Aires  ...              145.3559
+407   Greater Buenos Aires  ...              145.3901
+416   Greater Buenos Aires  ...              145.4651
+425   Greater Buenos Aires  ...              145.4960
+434   Greater Buenos Aires  ...              145.3664
+...                    ...  ...                   ...
+986   Greater Buenos Aires  ...              145.4246
+994   Greater Buenos Aires  ...              145.4130
+1002  Greater Buenos Aires  ...              145.4143
+1010  Greater Buenos Aires  ...              145.4101
+1018  Greater Buenos Aires  ...              145.4245
+
+[74 rows x 8 columns]...
+Graficando el precio en pesos argentinos de Potatoes, datos: 
+                   Mercado  ... Precio dolar supuesto
+393   Greater Buenos Aires  ...              145.3689
+403   Greater Buenos Aires  ...              145.4545
+412   Greater Buenos Aires  ...              145.3351
+421   Greater Buenos Aires  ...              145.4212
+430   Greater Buenos Aires  ...              145.3300
+...                    ...  ...                   ...
+982   Greater Buenos Aires  ...              145.4351
+990   Greater Buenos Aires  ...              145.4045
+998   Greater Buenos Aires  ...              145.4152
+1006  Greater Buenos Aires  ...              145.4158
+1014  Greater Buenos Aires  ...              145.4322
+
+[74 rows x 8 columns]...
