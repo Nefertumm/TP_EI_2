@@ -192,3 +192,109 @@ Datos:
 1014  Greater Buenos Aires  ...              145.4322
 
 [74 rows x 8 columns]
+------------------------------------------------
+Muestra estraficada:
+Se estratifica por grupo alimenticio, con una muestra del 20% de la población, la tabla de frecuencias de la muestra es
+Wheat flour       47
+Wheat             42
+Maize (yellow)    37
+Sugar             15
+Potatoes          15
+Bread             15
+Milk              15
+Rice (white)      15
+Meat (beef)        4
+Name: Grupo alimenticio, dtype: int64
+La muestra queda como 
+                   Mercado  ... Precio dolar supuesto
+489                Rosario  ...              145.2941
+156                Rosario  ...              143.3333
+368           Buenos Aires  ...              145.0777
+830   Greater Buenos Aires  ...              145.4324
+1016  Greater Buenos Aires  ...              145.4156
+...                    ...  ...                   ...
+387           Buenos Aires  ...              145.9459
+400           Buenos Aires  ...              145.4545
+410           Buenos Aires  ...              145.3488
+562   Greater Buenos Aires  ...              145.4606
+913                Rosario  ...              145.3738
+
+[205 rows x 8 columns]
+                   Mercado  ... Precio dolar supuesto
+489                Rosario  ...              145.2941
+156                Rosario  ...              143.3333
+368           Buenos Aires  ...              145.0777
+830   Greater Buenos Aires  ...              145.4324
+1016  Greater Buenos Aires  ...              145.4156
+...                    ...  ...                   ...
+387           Buenos Aires  ...              145.9459
+400           Buenos Aires  ...              145.4545
+410           Buenos Aires  ...              145.3488
+562   Greater Buenos Aires  ...              145.4606
+913                Rosario  ...              145.3738
+
+[205 rows x 8 columns]
+Cálculo de estadísticos: 
+La media de cada columna es de: 
+Precio en pesos argentinos     30.312976
+Precio en dólares               0.208454
+Precio dolar hoy               34.993280
+Precio dolar real               0.662325
+Precio dolar supuesto         145.411547
+dtype: float64
+La mediana de cada columna es de: 
+Precio en pesos argentinos     10.4700
+Precio en dólares               0.0720
+Precio dolar hoy               16.9750
+Precio dolar real               0.3760
+Precio dolar supuesto         145.4201
+dtype: float64
+La moda de cada columna es de: 
+   Precio en pesos argentinos  ...  Precio dolar supuesto
+0                         0.7  ...               145.4545
+1                         NaN  ...                    NaN
+2                         NaN  ...                    NaN
+3                         NaN  ...                    NaN
+4                         NaN  ...                    NaN
+5                         NaN  ...                    NaN
+
+[6 rows x 5 columns]
+Los cuartiles de cada columna es de: 
+      Precio en pesos argentinos  ...  Precio dolar supuesto
+0.25                        1.20  ...               145.3634
+0.50                       10.47  ...               145.4201
+0.75                       38.24  ...               145.4545
+
+[3 rows x 5 columns]
+------------------------------------------------
+------------------------------------------------
+Cáculo de parámetros: 
+La media de cada columna es de: 
+Precio en pesos argentinos     28.347571
+Precio en dólares               0.194938
+Precio dolar hoy               32.506237
+Precio dolar real               0.656567
+Precio dolar supuesto         145.459452
+dtype: float64
+La mediana de cada columna es de: 
+Precio en pesos argentinos     10.4800
+Precio en dólares               0.0721
+Precio dolar hoy               15.9575
+Precio dolar real               0.3546
+Precio dolar supuesto         145.4205
+dtype: float64
+La moda de cada columna es de: 
+   Precio en pesos argentinos  ...  Precio dolar supuesto
+0                         0.7  ...               145.4545
+1                         NaN  ...                    NaN
+
+[2 rows x 5 columns]
+Los cuartiles de cada columna es de: 
+      Precio en pesos argentinos  ...  Precio dolar supuesto
+0.25                        0.92  ...               145.3711
+0.50                       10.48  ...               145.4205
+0.75                       38.05  ...               145.4545
+
+[3 rows x 5 columns]
+------------------------------------------------
+------------------------------------------------

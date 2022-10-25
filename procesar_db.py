@@ -4,6 +4,7 @@ import pandas as pd
 import datetime as dt
 import seaborn as sns
 import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
 
 def limpieza_base_de_datos(db : pd.DataFrame) -> pd.DataFrame:
     
@@ -119,6 +120,28 @@ def grafico_torta_por_region(db: pd.DataFrame, grupo_alimenticio: str) -> None:
     plt.axis('equal')
     
     plt.savefig(f'graficos/torta_composicion_{grupo_alimenticio}.png', dpi = 600, bbox_inches = 'tight')
+
+def generar_trimestres(row):
+    pass
+
+def muestra_sistematica(db: pd.DataFrame) -> pd.DataFrame:
+    
+    logger('Generamos los trimestres.\nDataframe:')
+    db['Estratos'] = db.apply(lambda row : generar_trimestres(row), axis=1)
+
+def muestra_estratificada(db: pd.DataFrame) -> None:
+    logger('------------------------------------------------')
+    logger('Muestra estraficada:')
+    train, test  = train_test_split(db, stratify=db['Grupo alimenticio'], random_state = 0, test_size=0.2)
+    logger(f"Se estratifica por grupo alimenticio, con una muestra del 20% de la población, la tabla de frecuencias de la muestra es\n{test['Grupo alimenticio'].value_counts()}")
+    logger(f'La muestra queda como \n{test}')
+    logger(str(test))
+    logger('Cálculo de estadísticos: ')
+    calcular_medidas_centrales_y_cuartiles(test)
+    logger('------------------------------------------------')
+    logger('Cáculo de parámetros: ')
+    calcular_medidas_centrales_y_cuartiles(db)
+    logger('------------------------------------------------')
     
 if __name__ == '__main__':
     # Inicializamos el archivo de logs vacío en cada ejecución
@@ -183,7 +206,7 @@ if __name__ == '__main__':
     grafico_torta_por_region(db, 'Sugar')
     grafico_torta_por_region(db, 'Potatoes')
     
-    print(db.info(verbose=True))
+    muestra_estratificada(db)
     
     db.to_csv('base_de_datos_final.csv')
     
