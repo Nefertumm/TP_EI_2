@@ -268,7 +268,7 @@ Los cuartiles de cada columna es de:
 [3 rows x 5 columns]
 ------------------------------------------------
 ------------------------------------------------
-Cáculo de parámetros: 
+Cálculo de parámetros: 
 La media de cada columna es de: 
 Precio en pesos argentinos     28.347571
 Precio en dólares               0.194938
@@ -294,6 +294,42 @@ Los cuartiles de cada columna es de:
 0.25                        0.92  ...               145.3711
 0.50                       10.48  ...               145.4205
 0.75                       38.05  ...               145.4545
+
+[3 rows x 5 columns]
+------------------------------------------------
+------------------------------------------------
+------------------------------------------------
+Se elige Maize (yellow) para el muestreo sistemático.
+Cálculo de parámetros:
+La media de cada columna es de: 
+Precio en pesos argentinos      3.909784
+Precio en dólares               0.026886
+Precio dolar hoy               21.683943
+Precio dolar real               0.145571
+Precio dolar supuesto         145.547542
+dtype: float64
+La mediana de cada columna es de: 
+Precio en pesos argentinos      0.9300
+Precio en dólares               0.0064
+Precio dolar hoy                5.8386
+Precio dolar real               0.1497
+Precio dolar supuesto         145.4235
+dtype: float64
+La moda de cada columna es de: 
+   Precio en pesos argentinos  ...  Precio dolar supuesto
+0                        0.39  ...               144.4444
+1                        0.43  ...               145.4545
+2                        0.93  ...                    NaN
+3                         NaN  ...                    NaN
+4                         NaN  ...                    NaN
+5                         NaN  ...                    NaN
+
+[6 rows x 5 columns]
+Los cuartiles de cada columna es de: 
+      Precio en pesos argentinos  ...  Precio dolar supuesto
+0.25                        0.44  ...               145.0000
+0.50                        0.93  ...               145.4235
+0.75                        3.27  ...               145.9259
 
 [3 rows x 5 columns]
 ------------------------------------------------

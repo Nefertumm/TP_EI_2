@@ -125,9 +125,15 @@ def generar_trimestres(row):
     pass
 
 def muestra_sistematica(db: pd.DataFrame) -> pd.DataFrame:
+    logger('------------------------------------------------')
+    logger('Se elige Maize (yellow) para el muestreo sistemático.')
+    maize = db.loc[db['Grupo alimenticio'] == 'Maize (yellow)']
     
-    logger('Generamos los trimestres.\nDataframe:')
-    db['Estratos'] = db.apply(lambda row : generar_trimestres(row), axis=1)
+    
+    logger('Cálculo de parámetros:')
+    calcular_medidas_centrales_y_cuartiles(maize)
+    logger('------------------------------------------------')
+    
 
 def muestra_estratificada(db: pd.DataFrame) -> None:
     logger('------------------------------------------------')
@@ -139,7 +145,7 @@ def muestra_estratificada(db: pd.DataFrame) -> None:
     logger('Cálculo de estadísticos: ')
     calcular_medidas_centrales_y_cuartiles(test)
     logger('------------------------------------------------')
-    logger('Cáculo de parámetros: ')
+    logger('Cálculo de parámetros: ')
     calcular_medidas_centrales_y_cuartiles(db)
     logger('------------------------------------------------')
     
@@ -207,6 +213,7 @@ if __name__ == '__main__':
     grafico_torta_por_region(db, 'Potatoes')
     
     muestra_estratificada(db)
+    muestra_sistematica(db)
     
     db.to_csv('base_de_datos_final.csv')
     
