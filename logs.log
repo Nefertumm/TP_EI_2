@@ -300,8 +300,27 @@ Los cuartiles de cada columna es de:
 ------------------------------------------------
 ------------------------------------------------
 Se elige Maize (yellow) para el muestreo sistemático.
+Para el muestreo estratificado se usa un tamaño de muestra de 61.
+El step del mismo será 3.
+Arrancaremos por la fila 69
+La muestra es la siguiente: 
+    index  Mercado  ... Precio dolar real  Precio dolar supuesto
+69    228  Rosario  ...            0.1674               146.8085
+72    237  Rosario  ...            0.1428               142.8571
+75    248  Rosario  ...            0.1587               146.8085
+78    257  Rosario  ...            0.1530               144.6809
+81    266  Rosario  ...            0.1672               145.2830
+..    ...      ...  ...               ...                    ...
+52    175  Rosario  ...            0.1263               145.4545
+55    184  Rosario  ...            0.1137               141.9355
+58    193  Rosario  ...            0.1271               147.0588
+61    202  Rosario  ...            0.1595               146.5116
+64    213  Rosario  ...            0.1914               145.2830
+
+[61 rows x 9 columns]
 Cálculo de parámetros:
 La media de cada columna es de: 
+index                         383.837838
 Precio en pesos argentinos      3.909784
 Precio en dólares               0.026886
 Precio dolar hoy               21.683943
@@ -309,6 +328,7 @@ Precio dolar real               0.145571
 Precio dolar supuesto         145.547542
 dtype: float64
 La mediana de cada columna es de: 
+index                         305.0000
 Precio en pesos argentinos      0.9300
 Precio en dólares               0.0064
 Precio dolar hoy                5.8386
@@ -316,21 +336,66 @@ Precio dolar real               0.1497
 Precio dolar supuesto         145.4235
 dtype: float64
 La moda de cada columna es de: 
-   Precio en pesos argentinos  ...  Precio dolar supuesto
-0                        0.39  ...               144.4444
-1                        0.43  ...               145.4545
-2                        0.93  ...                    NaN
-3                         NaN  ...                    NaN
-4                         NaN  ...                    NaN
-5                         NaN  ...                    NaN
+     index  ...  Precio dolar supuesto
+0        3  ...               144.4444
+1        6  ...               145.4545
+2        9  ...                    NaN
+3       12  ...                    NaN
+4       15  ...                    NaN
+..     ...  ...                    ...
+180    995  ...                    NaN
+181   1003  ...                    NaN
+182   1011  ...                    NaN
+183   1019  ...                    NaN
+184   1021  ...                    NaN
 
-[6 rows x 5 columns]
+[185 rows x 6 columns]
 Los cuartiles de cada columna es de: 
-      Precio en pesos argentinos  ...  Precio dolar supuesto
-0.25                        0.44  ...               145.0000
-0.50                        0.93  ...               145.4235
-0.75                        3.27  ...               145.9259
+      index  ...  Precio dolar supuesto
+0.25  153.0  ...               145.0000
+0.50  305.0  ...               145.4235
+0.75  600.0  ...               145.9259
 
-[3 rows x 5 columns]
+[3 rows x 6 columns]
+------------------------------------------------
+Cálculo de estadísticos:
+La media de cada columna es de: 
+index                         385.606557
+Precio en pesos argentinos      3.935246
+Precio en dólares               0.027064
+Precio dolar hoy               21.848807
+Precio dolar real               0.145628
+Precio dolar supuesto         145.561403
+dtype: float64
+La mediana de cada columna es de: 
+index                         308.0000
+Precio en pesos argentinos      0.9300
+Precio en dólares               0.0064
+Precio dolar hoy                5.9948
+Precio dolar real               0.1507
+Precio dolar supuesto         145.3738
+dtype: float64
+La moda de cada columna es de: 
+    index  Precio en pesos argentinos  ...  Precio dolar real  Precio dolar supuesto
+0       6                        0.36  ...             0.0620               144.4444
+1      15                        0.44  ...             0.0690                    NaN
+2      24                        0.69  ...             0.0712                    NaN
+3      33                        0.77  ...             0.0764                    NaN
+4      44                        0.93  ...             0.0781                    NaN
+..    ...                         ...  ...                ...                    ...
+56    913                         NaN  ...             0.1975                    NaN
+57    938                         NaN  ...             0.2042                    NaN
+58    964                         NaN  ...             0.2118                    NaN
+59    995                         NaN  ...             0.2405                    NaN
+60   1019                         NaN  ...             0.2835                    NaN
+
+[61 rows x 6 columns]
+Los cuartiles de cada columna es de: 
+      index  ...  Precio dolar supuesto
+0.25  153.0  ...               145.0617
+0.50  308.0  ...               145.3738
+0.75  600.0  ...               145.7627
+
+[3 rows x 6 columns]
 ------------------------------------------------
 ------------------------------------------------

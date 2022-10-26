@@ -4,7 +4,10 @@ import pandas as pd
 import datetime as dt
 import seaborn as sns
 import matplotlib.pyplot as plt
+import random
+import numpy as np
 from sklearn.model_selection import train_test_split
+from math import floor
 
 def limpieza_base_de_datos(db : pd.DataFrame) -> pd.DataFrame:
     
@@ -121,17 +124,36 @@ def grafico_torta_por_region(db: pd.DataFrame, grupo_alimenticio: str) -> None:
     
     plt.savefig(f'graficos/torta_composicion_{grupo_alimenticio}.png', dpi = 600, bbox_inches = 'tight')
 
-def generar_trimestres(row):
-    pass
+def muestra_sistematica_aux(db: pd.DataFrame, start: int, step: int, sample_size: int) -> pd.DataFrame:
+    indexes = []
+    i = start
+    while len(indexes) != sample_size:
+        indexes.append(i)
+        i += step
+        if i >= len(db):
+            i = i-len(db)
+    muestra = db.iloc[indexes]
+    return muestra
 
 def muestra_sistematica(db: pd.DataFrame) -> pd.DataFrame:
     logger('------------------------------------------------')
     logger('Se elige Maize (yellow) para el muestreo sistemático.')
     maize = db.loc[db['Grupo alimenticio'] == 'Maize (yellow)']
-    
+    maize.reset_index(inplace = True)
+    random.seed(45)
+    tam_muestra = 61
+    logger('Para el muestreo estratificado se usa un tamaño de muestra de 61.')
+    step = floor(len(maize) // tam_muestra)
+    logger('El step del mismo será 3.')
+    start = random.randint(0, len(maize))
+    logger(f'Arrancaremos por la fila {start}')
+    muestra_maize = muestra_sistematica_aux(maize, start, step, tam_muestra)
+    logger(f'La muestra es la siguiente: \n{muestra_maize}')
     
     logger('Cálculo de parámetros:')
     calcular_medidas_centrales_y_cuartiles(maize)
+    logger('Cálculo de estadísticos:')
+    calcular_medidas_centrales_y_cuartiles(muestra_maize)
     logger('------------------------------------------------')
     
 
